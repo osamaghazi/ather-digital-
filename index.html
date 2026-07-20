@@ -3,186 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أَثَـر | ATHER Digital - صناعة الترند والتسويق الفيروسي</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>أَثَـر | ATHER - وكالة صناعة الترند والتسويق الفيروسي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Readex+Pro:wght@300;500;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-purple: #8b5cf6;
-            --accent-cyan: #06b6d4;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg-dark: #0a0f1d;
+            --card-bg: rgba(22, 31, 50, 0.7);
+            --border-glow: rgba(124, 58, 237, 0.3);
+            --primary-purple: #7c3aed;
+            --neon-pink: #ec4899;
+            --neon-cyan: #06b6d4;
+            --text-main: #ffffff;
+            --text-sub: #94a3b8;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Readex Pro', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-dark);
             color: var(--text-main);
+            overflow-x: hidden;
             line-height: 1.6;
-            padding: 15px;
         }
 
-        header {
-            text-align: center;
-            padding: 30px 10px;
+        /* خلفية متدرجة مضاءة */
+        .glow-bg {
+            position: fixed;
+            top: -100px;
+            right: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(124,58,237,0.3) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+        }
+
+        .glow-bg-2 {
+            position: fixed;
+            bottom: -100px;
+            left: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(236,72,153,0.2) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            background: rgba(10, 15, 29, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
-            font-size: 2.2rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, var(--accent-purple), var(--accent-cyan));
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 30%, var(--neon-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
 
-        .tagline {
-            font-size: 1.1rem;
-            color: var(--text-muted);
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid var(--neon-cyan);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
         }
 
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background-color: var(--neon-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1));
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 16px;
-            padding: 25px 20px;
+            padding: 60px 20px 40px 20px;
             text-align: center;
-            margin-bottom: 30px;
         }
 
-        .hero h1 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .hero p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
+        .tag {
+            display: inline-block;
+            background: linear-gradient(90deg, rgba(124,58,237,0.2), rgba(236,72,153,0.2));
+            border: 1px solid var(--border-glow);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #d8b4fe;
             margin-bottom: 20px;
         }
 
-        .btn-primary {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 30px;
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--primary-purple), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-purple), var(--neon-pink));
+            color: white;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Stats Grid */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 40px 20px;
+        }
+
+        .stat-box {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 18px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--neon-cyan);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-sub);
+        }
+
+        /* Services Section */
+        .section-header {
+            padding: 0 20px;
+            margin-bottom: 20px;
         }
 
         .section-title {
-            font-size: 1.3rem;
-            margin: 25px 0 15px 0;
-            border-right: 4px solid var(--accent-cyan);
-            padding-right: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
+        .cards-container {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
             gap: 15px;
         }
 
         .card {
-            background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 22px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(124, 58, 237, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
         }
 
         .card h3 {
-            color: var(--accent-cyan);
+            font-size: 1.15rem;
             margin-bottom: 8px;
-            font-size: 1.1rem;
         }
 
         .card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            font-weight: 300;
         }
 
-        .contact-section {
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 30px;
-            text-align: center;
+        /* Interactive Form Section */
+        .form-section {
+            margin: 50px 20px;
+            background: linear-gradient(180deg, var(--card-bg) 0%, rgba(10, 15, 29, 0.9) 100%);
+            border: 1px solid var(--border-glow);
+            padding: 25px;
+            border-radius: 20px;
         }
 
-        .whatsapp-link {
+        .form-group {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+
+        .form-group label {
             display: block;
-            background-color: #25D366;
-            color: #fff;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 6px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-purple);
         }
 
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding: 15px;
+            padding: 30px 20px;
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: var(--text-sub);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">أَثَـر | ATHER</div>
-        <p class="tagline">منصة التسويق الفيروسي وصناعة الترند في اليمن</p>
-    </header>
+    <div class="glow-bg"></div>
+    <div class="glow-bg-2"></div>
+
+    <nav>
+        <div class="logo">أَثَـر <span style="font-size:0.8rem; color:var(--text-sub); font-weight:300;">| ATHER</span></div>
+        <div class="live-badge">
+            <div class="pulse"></div>
+            <span>صانع الترند الأول</span>
+        </div>
+    </nav>
 
     <main>
         <section class="hero">
-            <h1>نوصل علامتك التجارية لآلاف المتابعين في ساعات</h1>
-            <p>نبتكر الحملات التسويقية التفاعلية التي تضمن تصدر علاماتكم التجارية للترند وزيادة التفاعل والمنشن بشكل قياسي.</p>
-            <a href="#contact" class="btn-primary">ابدأ حملتك معنا</a>
+            <span class="tag">🚀 الحل الذكي للتسويق الفيروسي في اليمن</span>
+            <h1>نُحوّل علامتك التجارية إلى <span>الترند الأكثر تفاعلاً</span></h1>
+            <p>لا نكتفي بالإعلانات التقليدية، بل نبتكر تجارب تفاعلية ومحتوى ضخم يدفع آلاف المتابعين للإشارة لشركتك والتفاعل معها.</p>
+            <a href="#order" class="cta-btn">احجز حملتك وتصدر الترند ⚡</a>
         </section>
 
-        <h2 class="section-title">كيف نعمل؟</h2>
-        <div class="services-grid">
-            <div class="card">
-                <h3>1. صناعة المحتوى الفيروسي</h3>
-                <p>نبتكر أفكاراً تسويقية وإعلانات تفاعلية تجذب الجمهور اليمني وتدفعهم للمشاركة والإشارة لحسابك.</p>
+        <!-- الإحصائيات والقوة -->
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-number">+100K</div>
+                <div class="stat-label">وصول تفاعلي مجاني</div>
             </div>
-            <div class="card">
-                <h3>2. إدارة التفاعل والترند</h3>
-                <p>نُوجّه التفاعل بشكل مكثف نحو حسابات الشركات الرسمية لخلق شهرة سريعة وزيادة المتابعين.</p>
-            </div>
-            <div class="card">
-                <h3>3. الشراكات الاستراتيجية</h3>
-                <p>نربط العلامات التجارية الكبرى بالحملات الأكثر انتشاراً بدون تكاليف إعلان مسبقة مدفوعة.</p>
+            <div class="stat-box">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">صدارة للترند المحلّي</div>
             </div>
         </div>
 
-        <section class="contact-section" id="contact">
-            <h2>هل أنت شركة وتبحث عن انتشار واسع؟</h2>
-            <p style="color: var(--text-muted); margin-top: 5px;">تواصل معنا الآن لتنسيق حملتك القادمة وتصدر الترند.</p>
-            <!-- استبدل الرقم برقم واتساب الخاص بك -->
-            <a href="https://wa.me/967XXXXXXXXX" class="whatsapp-link">تواصل عبر واتساب مباشر</a>
+        <div class="section-header">
+            <h2 class="section-title">لماذا تختار "أَثَـر"؟</h2>
+        </div>
+
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon">🔥</div>
+                <h3>تسويق فيروسي (Viral Marketing)</h3>
+                <p>نصنع أفكار مسابقات وتحديات ومحتوى تفاعلي تجبر الجمهور على مشاركة اسم شركتك والإشارة لحسابك بشكل تلقائي.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>توجيه الزخم للحساب الرسمّي</h3>
+                <p>كل التفاعل، التعليقات، والزيارات نُوجهها مباشرة إلى صفحاتك الرسمية لزيادة المتابعين الحقيقيين والعملاء.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>بدون تكاليف إعلان مسبقة</h3>
+                <p>نُقدّم الحلول الأكثر ذكاءً للشركات الكبرى لتحقيق أقصى شهرة وانتشار بأقل مخاطرة تسويقية.</p>
+            </div>
+        </div>
+
+        <!-- نموذج حجز حملة مباشر إلى واتساب -->
+        <section class="form-section" id="order">
+            <h2 style="font-size: 1.2rem; margin-bottom: 8px;">تنسيق حملة تسويقية جديدة</h2>
+            <p style="font-size: 0.85rem; color: var(--text-sub); margin-bottom: 20px;">قم بتعبئة البيانات وسيقوم فريقنا بالتواصل معك فوراً لخطة الترند القادمة.</p>
+
+            <div class="form-group">
+                <label>اسم الشركة / العلامة التجارية</label>
+                <input type="text" id="companyName" placeholder="مثال: شركة السعيد / متجر..." required>
+            </div>
+
+            <div class="form-group">
+                <label>نوع الخدمة المطلوبة</label>
+                <select id="serviceType">
+                    <option>تصدر الترند ومسابقات تفاعلية</option>
+                    <option>حملة تسويق فيروسي للعلامة التجارية</option>
+                    <option>إدارة زخم وإشارات (Mentions) مكثفة</option>
+                </select>
+            </div>
+
+            <!-- أضف رقمك الخاص أدناه في الكود JS -->
+            <button class="cta-btn" onclick="sendToWhatsApp()">إرسال الطلب عبر الواتساب Direct 📲</button>
         </section>
     </main>
 
     <footer>
-        <p>جميع الحقوق محفوظة © 2026 - منصة أَثَر للتسويق الرقمي</p>
+        <p>جميع الحقوق محفوظة © 2026 — منصة **أَثَـر ATHER** للتسويق الرقمي</p>
     </footer>
 
+    <script>
+        function sendToWhatsApp() {
+            var company = document.getElementById('companyName').value;
+            var service = document.getElementById('serviceType').value;
+            
+            // ضع رقم هاتف عملك هنا مع مفتاح اليمن 967
+            var myNumber = "967700101643"; 
+
+            if(company.trim() === "") {
+                alert("يرجى كتابة اسم الشركة أولاً");
+                return;
+            }
+
+            var message = "مرحباً منصة أَثَر، أرغب بتنسيق حملة تسويقية جديدة:%0A" +
+                          "🏢 *الشركة:* " + encodeURIComponent(company) + "%0A" +
+                          "🎯 *نوع الخدمة:* " + encodeURIComponent(service);
+
+            var whatsappUrl = "https://wa.me/" + myNumber + "?text=" + message;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
 </body>
 </html>
+
